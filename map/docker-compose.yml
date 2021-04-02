@@ -1,0 +1,22 @@
+version: '2.3'
+services:
+  noti:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: noti/latest
+    container_name: noti
+    environment:
+      - GRADLE_VERSION
+      - GRADLE_HOME
+      - GRADLE_USER_HOME
+      - PATH
+    networks:
+      - proxy_nw
+    mem_limit: 4G
+
+
+
+networks:
+    proxy_nw:
+      external: true
